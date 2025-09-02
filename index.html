@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunbury Rentals - Premium Car Rental Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4338ca;
+            --secondary: #ec4899;
+            --accent: #14b8a6;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: float-shapes 20s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #ec4899, #f97316);
+            top: 70%;
+            left: 80%;
+            animation-delay: -7s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #14b8a6, #06b6d4);
+            top: 40%;
+            right: 20%;
+            animation-delay: -14s;
+        }
+
+        @keyframes float-shapes {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) translateX(10px) rotate(90deg); }
+            50% { transform: translateY(0px) translateX(-10px) rotate(180deg); }
+            75% { transform: translateY(20px) translateX(5px) rotate(270deg); }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+       .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 2rem;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+        .header.scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(25px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(20, 184, 166, 0.2) 0%, transparent 50%);
+            animation: pulse-bg 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-bg {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            display: inline-block;
+            font-weight: 500;
+            color: #e2e8f0;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+            to { box-shadow: 0 0 30px rgba(236, 72, 153, 0.5); }
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 3rem;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease-out 0.4s both;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Search Section */
+        .search-section {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .search-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .search-form:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group select {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group select option {
+            background: #000000;
+            color: white;
+            padding: 0.5rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #6366f1;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .form-group select:focus {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Fleet Section */
+        .fleet {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .fleet-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-card:hover::before,
+        .category-card.active::before {
+            opacity: 1;
+        }
+
+        .category-card:hover,
+        .category-card.active {
+            transform: translateY(-5px) scale(1.02);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .category-card h3 {
+            font-weight: 600;
+            color: #ffffff;
+            position: relative;
+            z-index: 5;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .car-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .car-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .car-card:hover::before {
+            opacity: 1;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .car-image {
+             height: 250px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+      .car-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Or 'contain' if you want the whole car to be visible */
+            display: block;
+}  
+/*
+        .car-image::after {
+            content: '🚗';
+            font-size: 4rem;
+            opacity: 0.3;
+        }*/
+
+        .car-category-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .car-info {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .car-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .car-price {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        .car-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .car-features li {
+            padding: 0.5rem 0;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .car-features li::before {
+            content: '✨';
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .reserve-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reserve-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .reserve-btn:hover::before {
+            left: 100%;
+        }
+
+        .reserve-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8));
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(20, 184, 166, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(20, 184, 166, 0.3);
+            box-shadow: 0 25px 80px rgba(20, 184, 166, 0.2);
+        }
+
+        .feature-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #14b8a6, #06b6d4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            box-shadow: 0 15px 40px rgba(20, 184, 166, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card p {
+            color: #94a3b8;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Locations Section */
+        .locations {
+            padding: 6rem 0;
+        }
+
+        .location-content {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .location-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .location-content p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .location-map {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 400px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-map iframe {
+            border-radius: 24px;
+            filter: grayscale(1) invert(1) contrast(1.2);
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer p {
+            margin: 1rem 0;
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            color: #64748b;
+        }
+
+        /* Scroll Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .search-form {
+                padding: 2rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fleet-categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #4338ca, #db2777);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="nav-container">
+    <a href="#" class="logo">Sunbury Rentals</a>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#fleet">Fleet</a></li>
+            <li><a href="#locations">Locations</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="social-icons">
+        <a href="https://facebook.com/YOUR_PAGE" target="_blank" aria-label="Facebook">
+            <img src="images/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://instagram.com/YOUR_PAGE" target="_blank" aria-label="Instagram">
+            <img src="images/instagram.png" alt="Instagram">
+        </a>
+         <a href="tel:+61430410450">
+        <img src="images/phone.png" alt="Phone">
+    </a>
+    <a href="mailto:sunburycarrentals@gmail.com">
+        <img src="images/message.png" alt="Email">
+    </a>
+    </div>
+</div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🚗 Premium Car Rentals & Rideshare Vehicles</div>
+            <h1>Drive Your Dreams</h1>
+            <p>Experience luxury, comfort, and reliability with our premium fleet of vehicles in Sunbury and Melbourne</p>
+            <div class="cta-buttons">
+                <a href="#fleet" class="btn-primary">Explore Fleet</a>
+                <a href="#contact" class="btn-secondary">Get Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+   <!-- Search Section -->
+<section class="search-section">
+    <div class="search-container">
+        <form class="search-form fade-in-up">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="pickup-location">Pickup Location</label>
+                    <select id="pickup-location">
+                        <option value="">Select Location</option>
+                        <option value="sunbury">Sunbury - Jackson Road</option>
+                        <option value="melbourne-cbd">Melbourne CBD</option>
+                        <option value="melbourne-airport">Melbourne Airport</option>
+                        <option value="richmond">Richmond</option>
+                        <option value="brunswick">Brunswick</option>
+                        <option value="carlton">Carlton</option>
+                        <option value="fitzroy">Fitzroy</option>
+                        <option value="docklands">Docklands</option>
+                        <option value="southbank">Southbank</option>
+                        <option value="st-kilda">St Kilda</option>
+                        <option value="preston">Preston</option>
+                        <option value="essendon">Essendon</option>
+                        <option value="footscray">Footscray</option>
+                        <option value="cheltenham">Cheltenham</option>
+                        <option value="dandenong">Dandenong</option>
+                        <option value="glen-waverley">Glen Waverley</option>
+                        <option value="werribee">Werribee</option>
+                        <option value="frankston">Frankston</option>
+                        <option value="box-hill">Box Hill</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pickup-date">Pickup Date</label>
+                    <input type="date" id="pickup-date">
+                </div>
+
+                <div class="form-group">
+                    <label for="return-date">Return Date</label>
+                    <input type="date" id="return-date">
+                </div>
+
+                <div class="form-group">
+                    <label for="pickup-time">Pickup Time</label>
+                    <input type="time" id="pickup-time" value="10:00">
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-name">Your Name</label>
+                    <input type="text" id="customer-name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-email">Your Email</label>
+                    <input type="email" id="customer-email" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-phone">Your Phone</label>
+                    <input type="tel" id="customer-phone" placeholder="+61 xxx xxx xxx" required>
+                </div>
+
+            </div>
+
+            <button type="submit" class="search-btn" id="search-btn">
+                <span class="btn-text">📧 Send Email to Team</span>
+                <span class="btn-loading" style="display: none;">📧 Sending Request...</span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Fleet Section -->
+<section id="fleet" class="fleet">
+    <div class="cars-grid">
+
+        <!-- Honda Civic -->
+        <div class="car-card">
+            <div class="car-image">
+                <img src="images/Honda-Civic.jpg" alt="Honda Civic">
+                <div class="car-category-badge">Economy</div>
+            </div>
+            <div class="car-info">
+                <h3>Honda Civic</h3>
+                <div class="car-price">$250/Week</div>
+                <ul class="car-features">
+                    <li>5 Passengers</li>
+                    <li>Climate Control</li>
+                    <li>Automatic Transmission</li>
+                    <li>Fuel Efficient</li>
+                    <li>CPVV Registered</li>
+                </ul>
+                <button class="reserve-btn" onclick="bookCar('Honda Civic')">Call to Reserve</button>
+            </div>
+        </div>
+
+        <!-- Toyota Corolla -->
+        <div class="car-card">
+            <div class="car-image">
+                <img src="images/toyota-corolla.jpg" alt="Toyota Corolla">
+                <div class="car-category-badge">Economy</div>
+            </div>
+            <div class="car-info">
+                <h3>Toyota Corolla</h3>
+                <div class="car-price">$190/Week</div>
+                <ul class="car-features">
+                    <li>4 Passengers</li>
+                    <li>Excellent MPG</li>
+                    <li>Bluetooth Connectivity</li>
+                    <li>Safety Features</li>
+                    <li>CPVV Registered</li>
+                </ul>
+                <button class="reserve-btn" onclick="bookCar('Toyota Corolla')">Call to Reserve</button>
+            </div>
+        </div>
+
+        <!-- Ford Kuga -->
+        <div class="car-card">
+            <div class="car-image">
+                <img src="images/ford-kuga.jpg" alt="Ford Kuga">
+                <div class="car-category-badge">SUV</div>
+            </div>
+            <div class="car-info">
+                <h3>Ford Kuga</h3>
+                <div class="car-price">$220/Week</div>
+                <ul class="car-features">
+                    <li>7 Passengers</li>
+                    <li>All-Wheel Drive</li>
+                    <li>Premium Safety</li>
+                    <li>Spacious Interior</li>
+                    <li>CPVV Registered</li>
+                </ul>
+                <button class="reserve-btn" onclick="bookCar('Ford Kuga')">Call to Reserve</button>
+            </div>
+        </div>
+
+        <!-- Audi Q7 -->
+        <div class="car-card">
+            <div class="car-image">
+                <img src="images/audi-q7.jpg" alt="Audi Q7">
+                <div class="car-category-badge">Luxury SUV</div>
+            </div>
+            <div class="car-info">
+                <h3>Audi Q7</h3>
+                <div class="car-price">$650/Week</div>
+                <ul class="car-features">
+                    <li>7 Passengers</li>
+                    <li>Quattro AWD</li>
+                    <li>Premium Interior</li>
+                    <li>Advanced Tech</li>
+                    <li>CPVV Registered</li>
+                </ul>
+                <button class="reserve-btn" onclick="bookCar('Audi Q7')">Call to Reserve</button>
+            </div>
+        </div>
+
+        <!-- BMW 3 Series -->
+        <div class="car-card">
+            <div class="car-image">
+                <img src="images/bmw-3-series.jpg" alt="BMW 3 Series">
+                <div class="car-category-badge">Executive</div>
+            </div>
+            <div class="car-info">
+                <h3>BMW 3 Series</h3>
+                <div class="car-price">$700/Week</div>
+                <ul class="car-features">
+                    <li>Premium Leather</li>
+                    <li>Navigation System</li>
+                    <li>Sport Package</li>
+                    <li>Premium Audio</li>
+                    <li>CPVV Registered</li>
+                </ul>
+                <button class="reserve-btn" onclick="bookCar('BMW 3 Series')">Call to Reserve</button>
+            </div>
+        </div>
+
+        <!-- Ford Mustang -->
+        <div class="car-card">
+            <div class="car-image">
+                <img src="images/ford-mustang.jpg" alt="Ford Mustang">
+                <div class="car-category-badge">Sports Car</div>
+            </div>
+            <div class="car-info">
+                <h3>Ford Mustang</h3>
+                <div class="car-price">$900/Week</div>
+                <ul class="car-features">
+                    <li>2 Passengers</li>
+                    <li>V8 Engine</li>
+                    <li>Sport Suspension</li>
+                    <li>Premium Sound</li>
+                    <li>Apple car play</li>
+                </ul>
+                <button class="reserve-btn" onclick="bookCar('Ford Mustang')">Call to Reserve</button>
+            </div>
+        </div>
+
+        <!-- Delivery Van 3.5 Tons -->
+        <div class="car-card">
+            <div class="car-image">
+                <img src="images/Vans.jpg" alt="Delivery Van 3.5 Tons">
+                <div class="car-category-badge">Commercial</div>
+            </div>
+            <div class="car-info">
+                <h3>Delivery Van 3.5 Tons</h3>
+                <div class="car-price">$320/Week</div>
+                <ul class="car-features">
+                    <li>2 Passengers</li>
+                    <li>3.5 Ton Cargo Capacity</li>
+                    <li>Spacious Interior</li>
+                    <li>Rear & Side Doors</li>
+                    <li>Cooler Fridge</li>
+                </ul>
+                <button class="reserve-btn" onclick="bookCar('Delivery Van 3.5 Tons')">Call to Reserve</button>
+            </div>
+        </div>
+
+        <!-- 4.5 Ton Truck -->
+        <div class="car-card">
+            <div class="car-image">
+                <img src="images/Trucks.jpg" alt="4.5 Ton Truck">
+                <div class="car-category-badge">Commercial</div>
+            </div>
+            <div class="car-info">
+                <h3>4.5 Ton Truck</h3>
+                <div class="car-price">$550/Week</div>
+                <ul class="car-features">
+                    <li>3 Seats</li>
+                    <li>4.5 Ton Payload Capacity</li>
+                    <li>Hydraulic Lift Available</li>
+                    <li>Box or Tray Body Options</li>
+                    <li>Automatic Transmission</li>
+                </ul>
+                <button class="reserve-btn" onclick="bookCar('4.5 Ton Truck')">Call to Reserve</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Complete Protection</h3>
+                    <p>Comprehensive insurance coverage including theft, accidents, and collision protection. Drive with complete peace of mind knowing you're fully covered.</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Flexibility</h3>
+                    <p>Change your plans without stress. Our flexible cancellation policy means no hidden fees or penalties when life takes an unexpected turn.</p>
+                </div>
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">🎧</div>
+                    <h3>24/7 Premium Support</h3>
+                    <p>Round-the-clock customer service with instant help and emergency replacements. We're here whenever you need us, day or night.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations" class="locations">
+        <div class="container">
+            <div class="location-content fade-in-up">
+                <h2>Prime Melbourne Locations</h2>
+                <p>Strategically positioned across Sunbury and Melbourne's key districts for your ultimate convenience and accessibility.</p>
+            </div>
+            <div class="location-map fade-in-up">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50513.89473165414!2d144.69692654863278!3d-37.57841037948089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4dd5c5bf91%3A0x5045675218ce840!2sSunbury%20VIC%203429%2C%20Australia!5e0!3m2!1sen!2sus!4v1635123456789!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; border-radius: 24px;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h3>Connect with Sunbury Rentals</h3>
+            <p>📞 <strong>+61 430 410 450</strong></p>
+            <p>📧 <strong>sunburycarrentals@gmail.com</strong></p>
+            <p>📍 <strong>Jackson Road, Sunbury VIC 3429</strong></p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sunbury Rentals. Crafted with passion for premium automotive experiences. ABN 83 88 06 61 989</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- EmailJS Library -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your public key
+        // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+        emailjs.init('YOUR_PUBLIC_KEY'); // You'll need to replace this with your actual key
+        
+        // Email configuration - Replace these with your actual EmailJS service details
+        const EMAIL_CONFIG = {
+            serviceId: 'service_yd4odeg',    // Your EmailJS service ID
+            templateId: 'template_da4kmth',  // Your EmailJS template ID
+            recipientEmail: 'sunburycarrentals@gmail.com' // ⭐ CHANGED: Updated email address
+        };
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        (function() {
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init('qdF6GpA6XQOM8sOlJ');
+    }
+})();
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in-up elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Set minimum dates for form
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('pickup-date').min = today;
+        document.getElementById('return-date').min = today;
+
+        // Update return date when pickup changes
+        document.getElementById('pickup-date').addEventListener('change', function() {
+            document.getElementById('return-date').min = this.value;
+        });
+
+        // Enhanced search form handling with email functionality
+        document.querySelector('.search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const pickupLocation = document.getElementById('pickup-location').value;
+            const pickupDate = document.getElementById('pickup-date').value;
+            const returnDate = document.getElementById('return-date').value;
+            const pickupTime = document.getElementById('pickup-time').value;
+            const customerName = document.getElementById('customer-name').value;
+            const customerEmail = document.getElementById('customer-email').value;
+            const customerPhone = document.getElementById('customer-phone').value;
+            
+            // Validate required fields
+            if (!pickupLocation || !pickupDate || !returnDate || !customerName || !customerEmail || !customerPhone) {
+                showNotification('Please complete all fields to submit your vehicle request', 'warning');
+                return;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(customerEmail)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Validate date logic
+            if (new Date(returnDate) <= new Date(pickupDate)) {
+                showNotification('Return date must be after pickup date', 'error');
+                return;
+            }
+            
+            const days = Math.ceil((new Date(returnDate) - new Date(pickupDate)) / (1000 * 60 * 60 * 24));
+            
+            // Show loading state
+            const searchBtn = document.getElementById('search-btn');
+            const btnText = searchBtn.querySelector('.btn-text');
+            const btnLoading = searchBtn.querySelector('.btn-loading');
+            
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            searchBtn.disabled = true;
+            
+            // Prepare email data
+            const emailData = {
+                to_email: EMAIL_CONFIG.recipientEmail,
+                customer_name: customerName,
+                customer_email: customerEmail,
+                customer_phone: customerPhone,
+                pickup_location: pickupLocation.replace('-', ' '),
+                pickup_date: new Date(pickupDate).toLocaleDateString('en-AU', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                }),
+                return_date: new Date(returnDate).toLocaleDateString('en-AU', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                }),
+                pickup_time: pickupTime,
+                duration: `${days} day${days > 1 ? 's' : ''}`,
+                message: `Vehicle rental inquiry for ${days} day${days > 1 ? 's' : ''} from ${pickupLocation.replace('-', ' ')}`
+            };
+            
+            // Send email using EmailJS
+            emailjs.send(EMAIL_CONFIG.serviceId, EMAIL_CONFIG.templateId, emailData)
+                .then(function(response) {
+                    console.log('Email sent successfully:', response);
+                    
+                    // Reset button state
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                    searchBtn.disabled = false;
+                    
+                    // Show success message
+                    showNotification('🎉 Vehicle request sent successfully! We\'ll contact you within 2 hours.', 'success');
+                    
+                    // Create success modal
+                    createSuccessModal(customerName, emailData);
+                    
+                    // Reset form
+                    setTimeout(() => {
+                        document.querySelector('.search-form').reset();
+                        document.getElementById('pickup-time').value = '10:00';
+                    }, 2000);
+                    
+                }, function(error) {
+                    console.error('Email sending failed:', error);
+                    
+                    // Reset button state
+                    btnText.style.display = 'inline';
+                    btnLoading.style.display = 'none';
+                    searchBtn.disabled = false;
+                    
+                    // Show error message with fallback
+                    showNotification('Unable to send email. Please call +61 430 410 450 directly.', 'error');
+                    
+                    // Create fallback contact modal
+                    createFallbackModal(customerName, emailData);
+                });
+        });
+        
+        // Create success modal
+        function createSuccessModal(customerName, requestData) {
+            const modal = createModal();
+            const content = modal.querySelector('.modal-content');
+            
+            content.innerHTML = `
+                <div style="text-align: center;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, #10b981, #14b8a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Request Sent Successfully!</h3>
+                    <p style="margin-bottom: 1.5rem; color: #94a3b8;">Hi ${customerName}, your vehicle request has been sent to our team.</p>
+                    
+                    <div style="background: rgba(16, 185, 129, 0.1); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border: 1px solid rgba(16, 185, 129, 0.2);">
+                        <h4 style="color: #10b981; margin-bottom: 1rem;">📋 Request Summary</h4>
+                        <p><strong>Location:</strong> ${requestData.pickup_location}</p>
+                        <p><strong>Duration:</strong> ${requestData.duration}</p>
+                        <p><strong>Pickup:</strong> ${requestData.pickup_date} at ${requestData.pickup_time}</p>
+                        <p><strong>Return:</strong> ${requestData.return_date}</p>
+                    </div>
+                    
+                    <div style="background: rgba(99, 102, 241, 0.1); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border: 1px solid rgba(99, 102, 241, 0.2);">
+                        <h4 style="color: #6366f1; margin-bottom: 0.5rem;">⏰ What's Next?</h4>
+                        <p style="color: #94a3b8;">Our team will contact you within 2 hours with available vehicles and pricing.</p>
+                    </div>
+                    
+                    <button onclick="this.closest('.modal').remove()" style="
+                        background: linear-gradient(135deg, #10b981, #14b8a6);
+                        color: white;
+                        border: none;
+                        padding: 1rem 2rem;
+                        border-radius: 50px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    ">Perfect! Close</button>
+                </div>
+            `;
+        }
+        
+        // Create fallback contact modal
+        function createFallbackModal(customerName, requestData) {
+            const modal = createModal();
+            const content = modal.querySelector('.modal-content');
+            
+            content.innerHTML = `
+                <div style="text-align: center;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📞</div>
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, #f59e0b, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Let's Connect Directly</h3>
+                    <p style="margin-bottom: 1.5rem; color: #94a3b8;">Hi ${customerName}, let's get your vehicle request sorted right away!</p>
+                    
+                    <div style="background: rgba(245, 158, 11, 0.1); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border: 1px solid rgba(245, 158, 11, 0.2);">
+                        <h4 style="color: #f59e0b; margin-bottom: 1rem;">📋 Your Request Details</h4>
+                        <p><strong>Location:</strong> ${requestData.pickup_location}</p>
+                        <p><strong>Duration:</strong> ${requestData.duration}</p>
+                        <p><strong>Pickup:</strong> ${requestData.pickup_date} at ${requestData.pickup_time}</p>
+                        <p><strong>Email:</strong> ${requestData.customer_email}</p>
+                        <p><strong>Phone:</strong> ${requestData.customer_phone}</p>
+                    </div>
+                    
+                    <div style="background: rgba(99, 102, 241, 0.1); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem; border: 1px solid rgba(99, 102, 241, 0.2);">
+                        <h4 style="color: #6366f1; margin-bottom: 0.5rem;">📞 Call Us Now</h4>
+                        <p style="font-size: 1.5rem; font-weight: bold; color: #6366f1; margin-bottom: 0.5rem;">+61 430 410 450</p>
+                        <p style="color: #94a3b8;">Available 7 days a week for instant quotes</p>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                        <button onclick="window.open('tel:+61430410450')" style="
+                            background: linear-gradient(135deg, #10b981, #14b8a6);
+                            color: white;
+                            border: none;
+                            padding: 1rem 2rem;
+                            border-radius: 50px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        ">📞 Call Now</button>
+                        <button onclick="this.closest('.modal').remove()" style="
+                            background: rgba(255, 255, 255, 0.1);
+                            color: white;
+                            border: 1px solid rgba(255, 255, 255, 0.2);
+                            padding: 1rem 2rem;
+                            border-radius: 50px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        ">Close</button>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Helper function to create modal
+        function createModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(10px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            
+            const content = document.createElement('div');
+            content.className = 'modal-content';
+            content.style.cssText = `
+                background: linear-gradient(135deg, #1e293b, #334155);
+                padding: 3rem;
+                border-radius: 24px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                max-width: 600px;
+                width: 90%;
+                color: white;
+                transform: scale(0.8);
+                transition: transform 0.3s ease;
+                max-height: 80vh;
+                overflow-y: auto;
+            `;
+            
+            modal.appendChild(content);
+            document.body.appendChild(modal);
+            
+            // Animate in
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                content.style.transform = 'scale(1)';
+            }, 10);
+            
+            return modal;
+        }
+
+        // Enhanced category filtering with animations
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove active class from all cards
+                document.querySelectorAll('.category-card').forEach(c => {
+                    c.classList.remove('active');
+                    c.style.transform = 'scale(1)';
+                });
+                
+                // Add active class to clicked card
+                this.classList.add('active');
+                this.style.transform = 'scale(1.05)';
+                
+                const category = this.dataset.category;
+                showNotification(`✨ Filtering premium ${category.charAt(0).toUpperCase() + category.slice(1)} vehicles`, 'info');
+                
+                // Animate car cards
+                const carCards = document.querySelectorAll('.car-card');
+                carCards.forEach((card, index) => {
+                    card.style.opacity = '0.3';
+                    card.style.transform = 'scale(0.95)';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, index * 100);
+                });
+            });
+        });
+
+        // Enhanced booking function
+        function bookCar(carModel) {
+            const pickupDate = document.getElementById('pickup-date').value;
+            const returnDate = document.getElementById('return-date').value;
+            
+            if (!pickupDate || !returnDate) {
+                showNotification(`${carModel} selected! Complete the search form to check availability`, 'warning');
+                document.getElementById('pickup-date').focus();
+                return;
+            }
+            
+            const days = Math.ceil((new Date(returnDate) - new Date(pickupDate)) / (1000 * 60 * 60 * 24));
+            const prices = {
+                'Honda Civic': 55,
+                'Toyota Corolla': 45,
+                'Ford Kuga': 75,
+                'Audi Q7': 120,
+                'BMW 3 Series': 95,
+                'Ford Mustang': 85
+            };
+            const total = prices[carModel] * days;
+            
+            // Create booking modal effect
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(10px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            
+            const content = document.createElement('div');
+            content.style.cssText = `
+                background: linear-gradient(135deg, #1e293b, #334155);
+                padding: 3rem;
+                border-radius: 24px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                text-align: center;
+                max-width: 500px;
+                width: 90%;
+                color: white;
+                transform: scale(0.8);
+                transition: transform 0.3s ease;
+            `;
+            
+            content.innerHTML = `
+                <h3 style="font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, #6366f1, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">🚗 ${carModel}</h3>
+                <p style="margin-bottom: 1.5rem; color: #94a3b8;">Premium Rental Details</p>
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 16px; margin-bottom: 2rem;">
+                    <p><strong>Duration:</strong> ${days} day${days > 1 ? 's' : ''}</p>
+                    <p><strong>Daily Rate:</strong> ${prices[carModel]}</p>
+                    <p style="font-size: 1.5rem; font-weight: bold; color: #6366f1;"><strong>Total:</strong> ${total}</p>
+                </div>
+                <button onclick="this.parentElement.parentElement.remove()" style="
+                    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+                    color: white;
+                    border: none;
+                    padding: 1rem 2rem;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                ">Reserve Now - Call +61 430 410 450</button>
+            `;
+            
+            modal.appendChild(content);
+            document.body.appendChild(modal);
+            
+            // Animate in
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                content.style.transform = 'scale(1)';
+            }, 10);
+            
+            // Auto close after 10 seconds
+            setTimeout(() => {
+                if (document.body.contains(modal)) {
+                    modal.style.opacity = '0';
+                    setTimeout(() => modal.remove(), 300);
+                }
+            }, 10000);
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            const colors = {
+                success: '#10b981',
+                error: '#ef4444',
+                warning: '#f59e0b',
+                info: '#6366f1'
+            };
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 2rem;
+                right: 2rem;
+                background: ${colors[type]};
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+                z-index: 10000;
+                transform: translateX(400px);
+                transition: transform 0.3s ease;
+                font-weight: 600;
+                backdrop-filter: blur(10px);
+            `;
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(400px)';
+                setTimeout(() => notification.remove(), 300);
+            }, 4000);
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactive cursor effects
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.cursor');
+            if (!cursor) {
+                const newCursor = document.createElement('div');
+                newCursor.className = 'cursor';
+                newCursor.style.cssText = `
+                    position: fixed;
+                    width: 20px;
+                    height: 20px;
+                    background: linear-gradient(135deg, #6366f1, #ec4899);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    mix-blend-mode: difference;
+                    transition: transform 0.1s ease;
+                `;
+                document.body.appendChild(newCursor);
+            }
+            
+            document.querySelector('.cursor').style.left = e.clientX - 10 + 'px';
+            document.querySelector('.cursor').style.top = e.clientY - 10 + 'px';
+        });
+
+        // Initialize animations on load
+        window.addEventListener('load', () => {
+            // Add stagger animation to car cards
+            const carCards = document.querySelectorAll('.car-card');
+            carCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+            
+            // Welcome message
+            setTimeout(() => {
+                showNotification('🎉 Welcome to Sunbury Rentals Premium Experience!', 'success');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
+                        
